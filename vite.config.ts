@@ -52,7 +52,12 @@ function figmaAssetPlugin() {
   }
 }
 
+// For GitHub Pages: repo name becomes the base path
+// Set BASE_URL env var in CI, or defaults to '/' for local dev
+const base = process.env.BASE_URL || '/'
+
 export default defineConfig({
+  base,
   plugins: [
     figmaAssetPlugin(),
     react(),
